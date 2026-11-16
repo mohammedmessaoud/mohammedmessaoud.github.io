@@ -98,7 +98,8 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 
 .hero-card {
   background: var(--ink); color: var(--sand);
-  border-radius: 24px; padding: 36px;
+  border-radius: 24px; padding: 18px 18px 22px;
+  max-width: 420px; justify-self: end; width: 100%;
   position: relative; overflow: hidden;
 }
 .hero-card::after {
@@ -115,10 +116,12 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
   font-family: var(--serif); font-size: 32px; font-weight: 700;
   margin-bottom: 28px; position: relative; z-index: 1;
 }
-/* If you add a photo: <img class="avatar" src="assets/photo.jpg" alt="..."> */
-img.avatar { object-fit: cover; }
+.portrait {
+  display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover;
+  border-radius: 16px; margin-bottom: 20px; position: relative; z-index: 1;
+}
 
-.facts { list-style: none; margin: 0; padding: 0; position: relative; z-index: 1; }
+.facts { list-style: none; margin: 0; padding: 0 10px; position: relative; z-index: 1; }
 .facts li { padding: 14px 0; border-top: 1px solid rgba(246, 239, 228, .15); font-weight: 500; }
 .facts li span {
   display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .12em;
@@ -152,7 +155,7 @@ img.avatar { object-fit: cover; }
 .stat {
   background: var(--sand-2); border-radius: var(--radius); padding: 24px;
 }
-.stat strong { display: block; font-family: var(--serif); font-size: 40px; color: var(--clay); line-height: 1; }
+.stat strong { display: block; font-family: var(--serif); font-size: clamp(28px, 3.2vw, 40px); color: var(--clay); line-height: 1; }
 .stat span { font-size: 14px; color: var(--ink-soft); }
 
 /* Experience */
@@ -165,6 +168,12 @@ img.avatar { object-fit: cover; }
 .job-meta { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
 .job-date { font-weight: 700; color: var(--ink-soft); font-size: 15px; }
 .job h3 { font-size: 26px; margin-bottom: 14px; }
+.job-company { margin: -8px 0 14px; color: var(--clay); font-weight: 500; }
+.callout {
+  margin-top: 18px; padding: 14px 18px; border-radius: 10px;
+  background: var(--sand-2); border-left: 4px solid var(--clay); font-size: 15px;
+}
+.badge-muted { background: var(--ink-soft); }
 .job ul { margin: 0; padding-left: 18px; color: var(--ink-soft); }
 .job li { margin-bottom: 6px; }
 .job li::marker { color: var(--clay); }
@@ -254,6 +263,7 @@ a.contact-item:hover { background: var(--clay); transform: translateY(-2px); }
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 40px; gap: 40px; }
+  .hero-card { justify-self: start; }
   .about-grid { grid-template-columns: 1fr; gap: 24px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .job { grid-template-columns: 1fr; gap: 12px; }
